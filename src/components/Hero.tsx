@@ -1,8 +1,45 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Truck, Clock, Shield } from "lucide-react";
 import heroTruck from "@/assets/hero-truck.jpg";
+import heroWarehouse from "@/assets/hero-warehouse.jpg";
+import heroFleet from "@/assets/hero-fleet.jpg";
+import heroDelivery from "@/assets/hero-delivery.jpg";
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      image: heroTruck,
+      title: "Reliable Courier & Logistics Solutions",
+      subtitle: "Fast and secure delivery services across the region",
+    },
+    {
+      image: heroWarehouse,
+      title: "Advanced Warehouse Operations",
+      subtitle: "State-of-the-art facilities for your logistics needs",
+    },
+    {
+      image: heroFleet,
+      title: "Professional Fleet Management",
+      subtitle: "Modern vehicles for efficient delivery solutions",
+    },
+    {
+      image: heroDelivery,
+      title: "Customer-Focused Service",
+      subtitle: "Dedicated support and reliable delivery experience",
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -10,13 +47,22 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroTruck}
-          alt="Professional courier truck"
-          className="w-full h-full object-cover"
-        />
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary-dark/70"></div>
       </div>
 
@@ -24,11 +70,18 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Reliable Courier &{" "}
-            <span className="text-gold">Logistics Solutions</span>
+            {slides[currentSlide].title.split("&").map((part, index) => (
+              <span key={index}>
+                {index === 0 ? part : (
+                  <>
+                    & <span className="text-gold">{part.trim()}</span>
+                  </>
+                )}
+              </span>
+            ))}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Delivering excellence across the region with speed, security, and reliability you can trust.
+            {slides[currentSlide].subtitle}
           </p>
           
           {/* CTA Buttons */}
@@ -69,6 +122,22 @@ const Hero = () => {
               <h3 className="text-lg font-semibold mb-2">24/7 Service</h3>
               <p className="text-blue-100 text-center">Round-the-clock support and tracking</p>
             </div>
+          </div>
+
+          {/* Slide Indicators */}
+          <div className="flex justify-center space-x-2 mt-8">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "bg-gold scale-125"
+                    : "bg-white/50 hover:bg-white/75"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

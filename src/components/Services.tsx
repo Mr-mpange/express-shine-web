@@ -2,6 +2,10 @@ import { Truck, Package, Plane, Ship, ShoppingCart, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import deliveryPersonImg from "@/assets/delivery-person.jpg";
 import expressDeliveryImg from "@/assets/express-delivery.jpg";
+import internationalShippingImg from "@/assets/international-shipping.jpg";
+import ecommerceFulfillmentImg from "@/assets/ecommerce-fulfillment.jpg";
+import customerServiceImg from "@/assets/customer-service.jpg";
+import warehouseImg from "@/assets/warehouse.jpg";
 
 const Services = () => {
   const services = [
@@ -21,25 +25,25 @@ const Services = () => {
       icon: Clock,
       title: "Express Delivery",
       description: "Same-day and next-day delivery options for urgent shipments",
-      image: deliveryPersonImg,
+      image: customerServiceImg,
     },
     {
       icon: Ship,
       title: "Logistics Solutions",
       description: "End-to-end supply chain management and warehousing services",
-      image: expressDeliveryImg,
+      image: warehouseImg,
     },
     {
       icon: ShoppingCart,
       title: "E-commerce Support",
       description: "Specialized delivery solutions for online retailers and marketplaces",
-      image: deliveryPersonImg,
+      image: ecommerceFulfillmentImg,
     },
     {
       icon: Plane,
       title: "International Shipping",
       description: "Cross-border delivery services with customs clearance support",
-      image: expressDeliveryImg,
+      image: internationalShippingImg,
     },
   ];
 

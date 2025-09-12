@@ -1,5 +1,7 @@
 import { Target, Eye, Users } from "lucide-react";
 import warehouseImg from "@/assets/warehouse.jpg";
+import leadershipTeamImg from "@/assets/leadership-team.jpg";
+import controlCenterImg from "@/assets/control-center.jpg";
 
 const About = () => {
   return (
@@ -36,6 +38,34 @@ const About = () => {
               With years of experience and a growing network of trusted partners, we have built 
               a reputation for excellence in courier services, freight management, and logistics solutions.
             </p>
+          </div>
+        </div>
+
+        {/* Additional Image Gallery */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="relative">
+            <img
+              src={leadershipTeamImg}
+              alt="Safirisha Express leadership team"
+              className="w-full h-60 object-cover rounded-lg shadow-elegant"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent rounded-lg"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <h4 className="text-xl font-bold">Leadership Excellence</h4>
+              <p className="text-blue-100">Experienced management team</p>
+            </div>
+          </div>
+          <div className="relative">
+            <img
+              src={controlCenterImg}
+              alt="Modern logistics control center"
+              className="w-full h-60 object-cover rounded-lg shadow-elegant"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent rounded-lg"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <h4 className="text-xl font-bold">Technology Driven</h4>
+              <p className="text-blue-100">Advanced tracking and monitoring</p>
+            </div>
           </div>
         </div>
 
