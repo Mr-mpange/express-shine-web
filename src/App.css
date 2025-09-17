@@ -1,3 +1,46 @@
+/* Floating Button Animation & Hover */
+.floating-btn {
+  position: fixed;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  animation: float 2s ease-in-out infinite;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.floating-btn.whatsapp {
+  right: 24px;
+  bottom: 24px;
+  background: none;
+  border: none;
+}
+.floating-btn.whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+
+.floating-btn.aichat {
+  right: 90px;
+  bottom: 24px;
+  background: #4285F4;
+  color: white;
+  border: none;
+}
+.floating-btn.aichat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(66,133,244,0.3);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;

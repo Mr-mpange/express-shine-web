@@ -2,9 +2,9 @@ import { Target, Eye, Users, Mail, Phone } from "lucide-react";
 import warehouseImg from "@/assets/warehouse.jpg";
 import leadershipTeamImg from "@/assets/leadership-team.jpg";
 import controlCenterImg from "@/assets/control-center.jpg";
-import ceoPortrait from "@/assets/ceo-portrait.jpg";
-import operationsManager from "@/assets/operations-manager.jpg";
-import customerManager from "@/assets/customer-manager.jpg";
+import ceoPortrait from "@/assets/ceo-portrait.png";
+import operationsManager from "@/assets/operations-manager.png";
+import customerManager from "@/assets/customer-manager.png";
 import logisticsCoordinator from "@/assets/logistics-coordinator.jpg";
 
 const About = () => {
@@ -81,8 +81,7 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
             <p className="text-muted-foreground leading-relaxed">
-              To be the leading courier and logistics company in the region, known for 
-              our reliability, innovation, and exceptional customer service.
+              To set the delivery industry standard,it means we set the benchmark for other to follow
             </p>
           </div>
 
@@ -92,8 +91,7 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
             <p className="text-muted-foreground leading-relaxed">
-              To provide fast, secure, and cost-effective courier and logistics solutions 
-              that exceed customer expectations and contribute to business growth.
+              To solve the difficulties faced by business and organization in courier service
             </p>
           </div>
 
@@ -123,24 +121,24 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                name: "John Kamau",
-                role: "Chief Executive Officer",
+                name: "Abdulhalim  A. Mgala",
+                role: "Chief Executive Officer & Founder",
                 image: ceoPortrait,
                 email: "j.kamau@safirishaexpress.com",
                 phone: "+254 700 123 456",
                 description: "15+ years experience in logistics and supply chain management"
               },
               {
-                name: "Grace Wanjiku",
-                role: "Operations Manager",
+                name: "Ally I. Magai",
+                role: "Co-founder && Managerment Director",
                 image: operationsManager,
                 email: "g.wanjiku@safirishaexpress.com",
                 phone: "+254 733 234 567",
                 description: "Expert in warehouse operations and fleet management"
               },
               {
-                name: "David Ochieng",
-                role: "Customer Service Manager",
+                name: "Tabitha E. Gombanila",
+                role: "Shareholder",
                 image: customerManager,
                 email: "d.ochieng@safirishaexpress.com",
                 phone: "+254 722 345 678",

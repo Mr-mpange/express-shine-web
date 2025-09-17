@@ -20,7 +20,7 @@ const Tracking = () => {
     timeline: [
       {
         status: "Package Picked Up",
-        location: "Mombasa Collection Point",
+        location: "Mwanza Collection Point",
         time: "2024-01-15 09:30 AM",
         completed: true,
       },
@@ -131,6 +131,22 @@ const Tracking = () => {
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">Current Location</h3>
                   <p className="text-muted-foreground">{trackingData.currentLocation}</p>
+                  {/* Map Embed */}
+                  <div style={{marginTop: '16px', borderRadius: '12px', overflow: 'hidden'}}>
+                    {trackingData.currentLocation ? (
+                      <iframe
+                        title="Current Location Map"
+                        width="100%"
+                        height="200"
+                        style={{border:0}}
+                        loading="lazy"
+                        allowFullScreen
+                        src={`https://www.google.com/maps?&q=${encodeURIComponent(trackingData.currentLocation)}&output=embed`}
+                      ></iframe>
+                    ) : (
+                      <div style={{padding: '24px', color: '#888'}}>Map unavailable for this location.</div>
+                    )}
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">

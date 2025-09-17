@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import GoogleMap from "./GoogleMap";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -65,8 +66,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-foreground">Address</h4>
                     <p className="text-muted-foreground text-sm">
-                      123 Business District<br />
-                      Nairobi, Kenya
+                      33214 Ilemela Municipal<br />
+                      Mwanza region, Tanzania
                     </p>
                   </div>
                 </div>
@@ -80,8 +81,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
                     <p className="text-muted-foreground text-sm">
-                      +254 (0) 700 123 456<br />
-                      +254 (0) 733 654 321
+                      +255 (0) 745 367 235<br />
+                      +255 (0) 621 941 795
                     </p>
                   </div>
                 </div>
@@ -121,13 +122,10 @@ const Contact = () => {
 
           {/* Contact Form */}
           <Card className="p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name *
-                  </label>
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="name" className="text-base font-semibold text-foreground">Name *</label>
                   <Input
                     id="name"
                     name="name"
@@ -136,12 +134,11 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your full name"
+                    className="h-12 text-lg border-gray-300 focus:border-primary"
                   />
                 </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone
-                  </label>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="phone" className="text-base font-semibold text-foreground">Phone</label>
                   <Input
                     id="phone"
                     name="phone"
@@ -149,14 +146,13 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Your phone number"
+                    className="h-12 text-lg border-gray-300 focus:border-primary"
                   />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email *
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="email" className="text-base font-semibold text-foreground">Email *</label>
                 <Input
                   id="email"
                   name="email"
@@ -165,13 +161,12 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your.email@example.com"
+                  className="h-12 text-lg border-gray-300 focus:border-primary"
                 />
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message *
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="text-base font-semibold text-foreground">Message *</label>
                 <Textarea
                   id="message"
                   name="message"
@@ -180,25 +175,26 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your delivery needs..."
+                  className="text-lg border-gray-300 focus:border-primary"
                 />
               </div>
 
-              <Button type="submit" variant="gold" size="lg" className="w-full">
+              <Button type="submit" variant="gold" size="lg" className="w-full text-lg font-bold py-3">
                 Send Message
               </Button>
             </form>
           </Card>
         </div>
 
-        {/* Map Placeholder */}
+        {/* Interactive Google Map */}
         <div className="mt-16">
           <Card className="p-4">
-            <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground">Interactive map would be embedded here</p>
-                <p className="text-sm text-muted-foreground">Showing Safirisha Express office location</p>
-              </div>
+            <div style={{ minHeight: '300px', position: 'relative', borderRadius: '12px', overflow: 'hidden', background: '#f3f3f3' }}>
+              <GoogleMap location="Ilemela, Mwanza, Tanzania" />
+              {/* Fallback image if map fails to display */}
+              <noscript>
+                <img src="/assets/hero-warehouse.jpg" alt="Msafir Express Office" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px' }} />
+              </noscript>
             </div>
           </Card>
         </div>

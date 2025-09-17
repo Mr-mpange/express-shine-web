@@ -5,6 +5,7 @@ import heroTruck from "@/assets/hero-truck.jpg";
 import heroWarehouse from "@/assets/hero-warehouse.jpg";
 import heroFleet from "@/assets/hero-fleet.jpg";
 import heroDelivery from "@/assets/hero-delivery.jpg";
+import percels from "@/assets/carrier.jpg";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,12 +31,17 @@ const Hero = () => {
       title: "Customer-Focused Service",
       subtitle: "Dedicated support and reliable delivery experience",
     },
+    // {
+    //   image: percels,
+    //   title: "Customer-Focused Service",
+    //   subtitle: "Dedicated support and reliable delivery experience",
+    // },
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
@@ -63,7 +69,7 @@ const Hero = () => {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary-dark/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-dark/10"></div>
       </div>
 
       {/* Content */}

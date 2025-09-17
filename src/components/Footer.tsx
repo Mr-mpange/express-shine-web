@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
+import logo from '@/assets/logo.png';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -30,8 +31,13 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center">
-                <span className="text-gold-foreground font-bold text-lg">S</span>
+              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-gold">
+                {/* <span className="text-gold-foreground font-bold text-lg">S</span> */}
+                  <img 
+                      src={logo} 
+                      alt="Safirisha Express Logo" 
+                      className="w-full h-full object-cover"
+                   />
               </div>
               <span className="text-xl font-bold">Safirisha Express</span>
             </div>
@@ -106,15 +112,15 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-blue-100">123 Business District</p>
-                  <p className="text-blue-100">Nairobi, Kenya</p>
+                  <p className="text-blue-100">33214 Ilemela Municipal</p>
+                  <p className="text-blue-100">Mwanza region, Tanzania</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gold flex-shrink-0" />
                 <div>
-                  <p className="text-blue-100">+254 (0) 700 123 456</p>
-                  <p className="text-blue-100">+254 (0) 733 654 321</p>
+                  <p className="text-blue-100">+255 (0) 745 367 235</p>
+                  <p className="text-blue-100">+255 (0) 621 941 795</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
